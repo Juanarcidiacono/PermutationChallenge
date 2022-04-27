@@ -1,3 +1,5 @@
+package utils;
+
 import com.sun.jdi.connect.spi.TransportService;
 
 import java.util.ArrayList;
@@ -54,20 +56,17 @@ public class Permutation {
         //System.out.println(word.length());
         //permutationFinder(word.toCharArray(),0);
         //String str = inputText(word);
-
         String wordToBePermuted = inputText(word);
-
         //StringBuilder strInv = new StringBuilder(wordToBePermuted).reverse();
 
         //String wordToBePermutadedInv = strInv.toString();
         //int count = wordToBePermuted.length();
-
         try {
             findPermutations(wordToBePermuted.toCharArray(), 0, ans);
             for (int i = 0; i < ans.size() - 1; i++) {
                 for (int j = 0; j < ans.get(i).length() - 2 ; j++) {
                     //System.out.println(ans.get(i).substring(j));
-                    removeACharacterFindAllPermutations(ans.get(i).substring(j));
+                    removeACharacterAndFindAllPermutations(ans.get(i).substring(j));
                 }
             }
             /*
@@ -232,7 +231,7 @@ public class Permutation {
         return null;
     }
 */
-    private static void removeACharacterFindAllPermutations(String subWord) {
+    private static void removeACharacterAndFindAllPermutations(String subWord) {
         for (int i = 0; i < subWord.length(); i++) {
             findPermutations(removeElementFromArray(subWord, i), 0,ans);
         }
