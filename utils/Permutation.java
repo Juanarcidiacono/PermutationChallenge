@@ -38,7 +38,6 @@ public class Permutation {
             findPermutations(wordToBePermuted.toCharArray(), 0, ans);
             for (int i = 0; i < ans.size() - 1; i++) {
                 for (int j = 0; j < ans.get(i).length() - 2 ; j++) {
-                    //System.out.println(ans.get(i).substring(j));
                     removeACharacterAndFindAllPermutations(ans.get(i).substring(j));
                 }
             }
